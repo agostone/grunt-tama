@@ -10,7 +10,7 @@ TAsk MAnager for Grunt (based on the idea of jit-grunt by Shotaro Tsubouchi - ht
 - "Targeting" basic task(s) (impersonating basic task(s) as multi task(s))
 
 ## Install
-Not registered as a node package, yet.
+$ npm install git://github.com/Shards/grunt-tama.git --save-dev
 
 ## Usage
 Remove any `grunt.loadNpmTasks`, `grunt.loadTasks` from your gruntfile.js
