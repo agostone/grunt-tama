@@ -2,7 +2,7 @@
 
 TAsk MAnager for Grunt (based on the idea of jit-grunt by Shotaro Tsubouchi - https://github.com/shootaroo)
 
-Features:
+## Features
 - Structuring task configurations into files
 - Specifying extra plugin path(s)
 - Structuring custom task(s) into files
