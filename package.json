@@ -1,0 +1,36 @@
+{
+  "name": "grunt-tama",
+  "description": "TAsk MAnager for Grunt",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": {
+    "name": "Shards"
+  },
+  "main": "./lib/grunttama.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "lodash-node": "2.4.x",
+    "js-yaml": "3.2.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-cli": "0.1.x",
+    "grunt-contrib-clean": "0.6.x",
+    "grunt-contrib-jshint": "0.10.x",
+    "grunt-jscs": "0.7.x",
+    "grunt-jsdoc": "0.6.x",
+    "jsdoc": "3.3.x"
+  },
+  "peerDependencies": {
+    "grunt": "0.4.x"
+  },
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "multitask",
+    "task",
+    "loader"
+  ]
+}
