@@ -25,7 +25,7 @@ module.exports = function (grunt) {
     taskMaps: {<alias>: '<plugin name>:<task name>', ...}
     customTaskPaths = ['<custom task path>', '<custom task path>', ...],
     basicAsMultiTask = (true or ['<basic task name>', '<basic task name>', ...]),
-    eventListeners = ['<script file and path>', <function>, ...]
+    eventListeners = ['<path and filename>', <function>, ...]
   });
   ...
 }
@@ -107,7 +107,6 @@ Tama inherits the events.EventEmitter class and emits the following events:
 4. beforeLoadCustomTask
 5. beforeLoadModuleTasks
 
-Using the eventListeners config option, you can attach event listeners to these events.
 The config option is an array. Each element represents a listener initialization function and 
 can be a string - path and filename - or an inline function.
 The initialization functions should have the following structure:
@@ -130,7 +129,7 @@ The event is emitted before any grunt hook is applied.
 - Callback arguments: config
 - Optional: Yes
 
-The event is emitted before the grunt.initConfig call.
+The event is emitted before Tama calls the grunt.initConfig function.
 
 #### beforeRegisterTask event
 - Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
