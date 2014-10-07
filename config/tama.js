@@ -26,5 +26,27 @@ module.exports = {
   },
 
   // Handle basic task(s) as multi task(s)
-  basicAsMultiTask: ['asmulti']
+  basicAsMultiTask: ['asmulti'],
+
+  // Event listeners
+  eventListeners: [
+    './event_listeners/listener1.js',
+    function (tama) {
+      tama.on('beforeHooks', function() {
+        console.log('inline listener beforeHooks handler succeed!');
+      });
+      tama.on('beforeInitConfig', function() {
+        console.log('inline listener beforeInitConfig handler succeed!');
+      });
+      tama.on('beforeRegisterTask', function() {
+        console.log('inline listener beforeRegisterTask handler succeed!');
+      });  
+      tama.on('beforeLoadCustomTask', function() {
+        console.log('inline listener beforeLoadCustomTask handler succeed!');
+      });
+      tama.on('beforeLoadModuleTasks', function() {
+        console.log('inline listener beforeLoadModuleTasks handler succeed!');
+      });
+    }
+  ]
 };

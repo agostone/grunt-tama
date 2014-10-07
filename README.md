@@ -23,7 +23,8 @@ module.exports = function (grunt) {
     extraPluginPaths: ['<plugin path>', '<plugin path>', ...],
     taskMaps: {<alias>: '<plugin name>:<task name>', ...}
     customTaskPaths = ['<custom task path>', '<custom task path>', ...],
-    basicAsMultiTask = (true or ['<basic task name>', '<basic task name>', ...])
+    basicAsMultiTask = (true or ['<basic task name>', '<basic task name>', ...]),
+    eventListeners = ['<script file and path>', <function>, ...]
   });
   ...
 }
@@ -91,6 +92,61 @@ If it's set to true all basic tasks will be handled as a multi tasks.
 
 #### Value: `['<task name>', '<task name>', ...]`
 If it's set to an array of task names, only those individual tasks will be handled as multi tasks. 
+
+### eventListeners
+- Type: array
+- Default: []
+- Optional: yes
+
+Tama inherits the events.EventEmitter class and emits the following events:
+1. beforeHooks
+2. beforeInitConfig
+3. beforeRegisterTask
+4. beforeLoadCustomTask
+5. beforeLoadModuleTasks
+
+Using the eventListeners config option, you can attach event listeners to these events.
+The config option is an array. Each element represents a listener initialization function and 
+can be a string - path and filename - or an inline function.
+The initialization functions should have the following structure:
+
+```js
+function (tama) {
+...
+}
+```
+
+In the function body you can call tama.on('<event name>', <callback function>) to register an event listener.
+
+#### beforeHooks event
+- Callback arguments: config
+- Optional: No
+
+The event is emitted before any grunt hook is applied.
+
+#### beforeInitConfig event
+- Callback arguments: config
+- Optional: Yes
+
+The event is emitted before the grunt.initConfig call.
+
+#### beforeRegisterTask event
+- Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
+- Optional: No
+
+This event is emitted before a task is registered, when grunt.registerTask or grunt.registerMultiTask is called.
+
+#### beforeLoadCustomTask event
+- Callback arguments: taskFile
+- Optional: Yes
+
+This event is emitted before Tama loads a custom task file.
+
+#### beforeLoadModuleTasks event
+- Callback arguments: moduleTasksPath
+- Optional: Yes
+
+This event is emitted before Tama loads the tasks of a node module.
 
 ## Task lookup order
 Tama would look for tasks in the following locations, in this order:

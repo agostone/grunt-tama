@@ -29,14 +29,12 @@ module.exports = function(grunt) {
         all: ['*.js', '{lib,test}/**/*.js']
       },
 
-      clean: ['docs'],
+      clean: ['docs/*'],
 
       jsdoc: {
         dist : {
           src: ['lib/*.js', 'test/*.js'],
-          options: {
-            destination: 'docs'
-          }
+          dest: 'docs'
         }
       }
     });

@@ -1,7 +1,7 @@
 {
   "name": "grunt-tama",
   "description": "TAsk MAnager for Grunt",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "",
   "author": {
     "name": "Shards"
@@ -20,8 +20,9 @@
     "grunt-contrib-clean": "0.6.x",
     "grunt-contrib-jshint": "0.10.x",
     "grunt-jscs": "0.7.x",
-    "grunt-jsdoc": "0.6.x",
-    "jsdoc": "3.3.x"
+    "grunt-jsdoc": "0.5.x",
+    "jsdoc": "3.3.x",
+    "lodash-node": "^2.4.1"
   },
   "peerDependencies": {
     "grunt": "0.4.x"
