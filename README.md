@@ -8,6 +8,7 @@ TAsk MAnager for Grunt (based on the idea of jit-grunt by Shotaro Tsubouchi - ht
 - Structuring custom task(s) into files
 - Lazy loading tasks, only when grunt really needs them
 - "Targeting" basic task(s) (impersonating basic task(s) as multi task(s))
+- Event listeners
 
 ## Install
 $ npm install git://github.com/Shards/grunt-tama.git --save-dev
