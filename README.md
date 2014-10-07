@@ -118,7 +118,7 @@ function (tama) {
 }
 ```
 
-In the function body you can call tama.on('<event name>', <callback function>) to register an event listener.
+In the function body you can call `tama.on('<event name>', <callback function>)` to register an event listener.
 
 #### beforeHooks event
 - Callback arguments: config
