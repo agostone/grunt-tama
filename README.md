@@ -100,6 +100,7 @@ If it's set to an array of task names, only those individual tasks will be handl
 - Optional: yes
 
 Tama inherits the events.EventEmitter class and emits the following events:
+
 1. beforeHooks
 2. beforeInitConfig
 3. beforeRegisterTask
