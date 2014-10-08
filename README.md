@@ -103,7 +103,7 @@ Tama inherits the events.EventEmitter class and emits the following events:
 
 1. beforeHooks
 2. beforeInitConfig
-3. afterTamaInitialized
+3. afterInitialized
 4. beforeRegisterTask
 5. afterRegisterTask
 6. beforeLoadCustomTask
