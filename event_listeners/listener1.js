@@ -7,9 +7,15 @@ module.exports = function(tama) {
   tama.on('beforeInitConfig', function(config) {
     console.log('listener1 beforeInitConfig handler succeed!');
   });
+  tama.on('afterInitialized', function(config) {
+    console.log('listener1 afterInitialized handler succeed!');
+  });
   tama.on('beforeRegisterTask', function(taskName, taskDescriptionOrFunction, taskFunction) {
     console.log('listener1 beforeRegisterTask handler succeed! (' + taskName + ')');
-  });  
+  });
+  tama.on('afterRegisterTask', function(taskName, taskDescriptionOrFunction, taskFunction) {
+    console.log('listener1 afterRegisterTask handler succeed! (' + taskName + ')');
+  });
   tama.on('beforeLoadCustomTask', function(taskFile) {
     console.log('listener1 beforeLoadCustomTask handler succeed! (' + taskFile + ')');
   });

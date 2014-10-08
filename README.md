@@ -103,9 +103,11 @@ Tama inherits the events.EventEmitter class and emits the following events:
 
 1. beforeHooks
 2. beforeInitConfig
-3. beforeRegisterTask
-4. beforeLoadCustomTask
-5. beforeLoadModuleTasks
+3. afterTamaInitialized
+4. beforeRegisterTask
+5. afterRegisterTask
+6. beforeLoadCustomTask
+7. beforeLoadModuleTasks
 
 The config option is an array. Each element represents a listener initialization function and 
 can be a string - path and filename - or an inline function.
@@ -121,31 +123,43 @@ In the function body you can call `tama.on('<event name>', <callback function>)`
 
 #### beforeHooks event
 - Callback arguments: config
-- Optional: No
+- Always emitted: Yes
 
 The event is emitted before any grunt hook is applied.
 
 #### beforeInitConfig event
 - Callback arguments: config
-- Optional: Yes
+- Always emitted: No
 
 The event is emitted before Tama calls the grunt.initConfig function.
 
+#### afterInitialized event
+- Callback arguments: config
+- Always emitted: Yes
+
+The event is emitted after Tama is intialized.
+
 #### beforeRegisterTask event
 - Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
-- Optional: No
+- Always emitted: Yes
 
 This event is emitted before a task is registered, when grunt.registerTask or grunt.registerMultiTask is called.
 
+#### afterRegisterTask event
+- Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
+- Always emitted: Yes
+
+This event is emitted after a task is registered, after grunt.registerTask or grunt.registerMultiTask is called.
+
 #### beforeLoadCustomTask event
 - Callback arguments: taskFile
-- Optional: Yes
+- Always emitted: No
 
 This event is emitted before Tama loads a custom task file.
 
 #### beforeLoadModuleTasks event
 - Callback arguments: moduleTasksPath
-- Optional: Yes
+- Always emitted: No
 
 This event is emitted before Tama loads the tasks of a node module.
 

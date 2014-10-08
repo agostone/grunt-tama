@@ -38,9 +38,15 @@ module.exports = {
       tama.on('beforeInitConfig', function() {
         console.log('inline listener beforeInitConfig handler succeed!');
       });
+      tama.on('afterInitialized', function() {
+        console.log('inline listener afterInitialized handler succeed!');
+      });
       tama.on('beforeRegisterTask', function() {
         console.log('inline listener beforeRegisterTask handler succeed!');
-      });  
+      });
+      tama.on('afterRegisterTask', function() {
+        console.log('inline listener afterRegisterTask handler succeed!');
+      });
       tama.on('beforeLoadCustomTask', function() {
         console.log('inline listener beforeLoadCustomTask handler succeed!');
       });
