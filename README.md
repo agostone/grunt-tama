@@ -1,14 +1,13 @@
-# grunt-tama [![NPM version](https://badge.fury.io/js/grunt-tama.png)](http://badge.fury.io/js/grunt-tama) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-tama [![NPM version](https://badge.fury.io/js/grunt-tama.png)](http://badge.fury.io/js/grunt-tama)
 
-TAsk MAnager for Grunt (based on the idea of jit-grunt by Shotaro Tsubouchi - https://github.com/shootaroo)
+TAsk MAnager for Grunt
 
 ## Features
-- Structuring task configurations into files
+- Organize task configurations into files
+- Organize task(s) into files
 - Specifying extra plugin path(s)
-- Structuring custom task(s) into files
 - Lazy loading tasks, only when grunt really needs them
 - "Targeting" basic task(s) (impersonating basic task(s) as multi task(s))
-- Event listeners
 
 ## Install
 $ npm install git://github.com/Shards/grunt-tama.git --save-dev
@@ -17,15 +16,14 @@ $ npm install git://github.com/Shards/grunt-tama.git --save-dev
 Remove any `grunt.loadNpmTasks`, `grunt.loadTasks` from your gruntfile.js
 and add `require('grunt-tama')(grunt, {<tama options>})` instead.
 
-```js
+```
 module.exports = function (grunt) {
   require('grunt-tama')(grunt, {
     configPath: '<path to the config files>',
     extraPluginPaths: ['<plugin path>', '<plugin path>', ...],
     taskMaps: {<alias>: '<plugin name>:<task name>', ...}
     customTaskPaths = ['<custom task path>', '<custom task path>', ...],
-    basicAsMultiTask = (true or ['<basic task name>', '<basic task name>', ...]),
-    eventListeners = ['<path and filename>', <function>, ...]
+    basicAsMultiTask = (true or ['<basic task name>', '<basic task name>', ...])
   });
   ...
 }
@@ -61,7 +59,7 @@ You can remove registerTask and registerMultiTask from your gruntfile.js and put
 directories as file(s).
 
 For example: custom1.js
-```js
+```
 module.exports = function (grunt) {
   grunt.registerTask('custom1', 'My custom task', function () {
     ...
@@ -94,75 +92,6 @@ If it's set to true all basic tasks will be handled as a multi tasks.
 #### Value: `['<task name>', '<task name>', ...]`
 If it's set to an array of task names, only those individual tasks will be handled as multi tasks. 
 
-### eventListeners
-- Type: array
-- Default: []
-- Optional: yes
-
-Tama inherits the events.EventEmitter class and emits the following events:
-
-1. beforeHooks
-2. beforeInitConfig
-3. afterInitialized
-4. beforeRegisterTask
-5. afterRegisterTask
-6. beforeLoadCustomTask
-7. beforeLoadModuleTasks
-
-The config option is an array. Each element represents a listener initialization function and 
-can be a string - path and filename - or an inline function.
-The initialization functions should have the following structure:
-
-```js
-function (tama) {
-...
-}
-```
-
-In the function body you can call `tama.on('<event name>', <callback function>)` to register an event listener.
-
-#### beforeHooks event
-- Callback arguments: config
-- Always emitted: Yes
-
-The event is emitted before any grunt hook is applied.
-
-#### beforeInitConfig event
-- Callback arguments: config
-- Always emitted: No
-
-The event is emitted before Tama calls the grunt.initConfig function.
-
-#### afterInitialized event
-- Callback arguments: config
-- Always emitted: Yes
-
-The event is emitted after Tama is intialized.
-
-#### beforeRegisterTask event
-- Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
-- Always emitted: Yes
-
-This event is emitted before a task is registered, when grunt.registerTask or grunt.registerMultiTask is called.
-
-#### afterRegisterTask event
-- Callback arguments: taskName, taskDescriptionOrFunction, taskFunction
-- Always emitted: Yes
-
-This event is emitted after a task is registered, after grunt.registerTask or grunt.registerMultiTask is called.
-
-#### beforeLoadCustomTask event
-- Callback arguments: taskFile
-- Always emitted: No
-
-This event is emitted before Tama loads a custom task file.
-
-#### beforeLoadModuleTasks event
-- Callback arguments: moduleTasksPath
-- Always emitted: No
-
-This event is emitted before Tama loads the tasks of a node module.
-
 ## Task lookup order
 Tama would look for tasks in the following locations, in this order:
 
@@ -182,35 +111,4 @@ Also directory and task name differences are not an issue.
 If multiply matches found, Tama will use the first.
 
 ## Running the test
-$ node grunt --test=run
-
-## Building Tama
-$ node grunt
-
-## TODO
-- Unit tests
-- Regsiter in NPM
-- Auto packer, uploader to NPM
-
-## License
-The MIT License (MIT)
-
-Copyright &copy; 2013 [Shards](https://github.com/shards)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+$ npm run test

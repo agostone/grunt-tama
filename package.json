@@ -1,31 +1,31 @@
 {
-  "name": "grunt-tama",
+  "name": "@agostone/grunt-tama",
   "description": "TAsk MAnager for Grunt",
   "version": "0.1.0",
-  "homepage": "",
   "author": {
-    "name": "Shards"
+    "name": "Agoston Nagy",
+    "url": "https://github.com/agostone"
   },
-  "main": "./lib/grunttama.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agostone/grunt-tama.git"
+  },
+  "main": "src/Tama.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 8.0.0"
   },
   "dependencies": {
-    "lodash-node": "2.4.x",
-    "js-yaml": "3.2.x"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "grunt": "0.4.x",
-    "grunt-cli": "0.1.x",
-    "grunt-contrib-clean": "0.6.x",
-    "grunt-contrib-jshint": "0.10.x",
-    "grunt-jscs": "0.7.x",
-    "grunt-jsdoc": "0.5.x",
-    "jsdoc": "3.3.x",
-    "lodash-node": "^2.4.1"
+    "eslint": "^6.1.0",
+    "eslint-config-node": "^4.0.0",
+    "grunt": "^1.0.4",
+    "jasmine": "^3.4.0",
+    "semantic-release": "^15.13.21"
   },
   "peerDependencies": {
-    "grunt": "0.4.x"
+    "grunt": "^1.0.4"
   },
   "keywords": [
     "grunt",
@@ -33,5 +33,8 @@
     "multitask",
     "task",
     "loader"
-  ]
+  ],
+  "scripts": {
+    "lint": "eslint -c ./eslint.json ./src/**/*.js"
+  }
 }
