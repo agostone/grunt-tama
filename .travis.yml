@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '12'
+  - '10'
+  - '8'
+
+jobs:
+  include:
+    - stage: release
+      node_js: '12'
+      script: echo "Versioning & Deployment"
+      deploy:
+        provider: script
+        script: "npx semantic-release"
+        on:
+          tags: false
+stages:
+  - test
+  - name: release
+    if: branch = master
